@@ -1,5 +1,5 @@
 <pre class="metadata">
-Title: URL Standard
+Title: URL Specification (testing publican build, nevermind me!)
 Group: WebSpecs
 H1: URL
 Shortname: url
@@ -100,13 +100,13 @@ might increase in scope somewhat.
 
 <p class="example">
 <code>http://username:password@example.com:8000/path?query#fragment</code>
-contains values for all <a>URL</a> components except 
+contains values for all <a>URL</a> components except
 <a title="URL scheme data">scheme data</a>.
 </p>
 
 <p class="example">
-<code>javascript:doSomething()</code> contains values for only 
-<a title='URL scheme'>scheme</a> and 
+<code>javascript:doSomething()</code> contains values for only
+<a title='URL scheme'>scheme</a> and
 <a title='URL scheme data'>scheme data</a>.
 </p>
 
@@ -271,7 +271,7 @@ optionally followed by an
 "<code>?</code>", and "<code>@</code>".
 
 <p>A <a>host</a> must be either a <a>domain</a>,
-or an <a title='IPv4'>IPv4 address</a>, 
+or an <a title='IPv4'>IPv4 address</a>,
 or "<code>[</code>" followed
 by an <a title='IPv6'>IPv6 address</a> followed by
 "<code>]</code>".
@@ -280,7 +280,7 @@ by an <a title='IPv6'>IPv6 address</a> followed by
 <a>valid domain</a>.
 
 <p class=XXX>Textual representation of <a title='IPv4'>IPv4 address</a> does
-not appear to be defined by an RFC.  See 
+not appear to be defined by an RFC.  See
 <a href="https://tools.ietf.org/html/draft-main-ipaddr-text-rep-00">Textual
 Representation of IPv4 and IPv6 Addresses</a> for some history.
 
@@ -475,7 +475,7 @@ with the next alternative.
 The following conventions are used in descriptions of parsing logic for
 clarity and conciseness:
 
- * The phrase "<code class=grammar-rule><span>x</span></code> 
+ * The phrase "<code class=grammar-rule><span>x</span></code>
      <dfn>is present</dfn>" is
      to be interpreted to mean "the grammar rule for
      <code class=grammar-rule><span>x</code><span> matches some part of the
@@ -484,7 +484,7 @@ clarity and conciseness:
      alternatives where multiple alternatives could potentially match the
      input, only the first matching input is considered to be present.
 
- * The phrase "<dfn>value of</dfn> 
+ * The phrase "<dfn>value of</dfn>
      <code class=grammar-rule><span>x</span></code>" is to be
      interpreted to mean "the value returned by the function
      <code>x(input)</code> when the function <code>x</code> is passed some
@@ -499,7 +499,7 @@ important ways including returning failure and early termination.
 
 <h4 id=rule-url class=no-toc>url(input)</h4>
 
-returns: { 
+returns: {
   <a href="#concept-url-scheme">scheme</a>,
   <a href="#concept-url-scheme-data">scheme-data</a>,
   <a href="#concept-url-username">username</a>,
@@ -534,7 +534,7 @@ Sequence:
     or <code class=grammar-rule><a href=#rule-relative-url>relative-url</a></code> depending on which <a>is present</a>.
 <li>If <code class=grammar-rule><a href=#rule-query>query</a></code> <a>is present</a>, set <code>result.query</code> to the <a>value of</a>
     <code class=grammar-rule><a href=#rule-query>query</a></code>.
-<li>If <code class=grammar-rule><a href=#rule-fragment>fragment</a></code> <a>is present</a>, set <code>result.fragment</code> to the 
+<li>If <code class=grammar-rule><a href=#rule-fragment>fragment</a></code> <a>is present</a>, set <code>result.fragment</code> to the
     <a>value of</a> <code class=grammar-rule><a href=#rule-fragment>fragment</a></code>.
 <li>If <code>result.scheme</code> has a <a>default port</a>, and if <code>result.port</code> is
     equal to that default, then delete the <code>port</code> property from <code>result</code>.
@@ -543,7 +543,7 @@ Sequence:
 
 <h4 id=rule-file-url class=no-toc>file-url(input)</h4>
 
-returns: { 
+returns: {
    <a href="#concept-url-scheme">scheme</a>,
    <a href="#concept-url-host">host</a>,
    <a href="#concept-url-path">path</a>
@@ -604,7 +604,7 @@ Choice:
      string and if there is a second element which has a non-empty value.
    <li>Construct a string using the <a>ASCII alpha</a>
      following the first "<code>:</code>" in the input
-     concatenated with a "<code>:</code>".  Prepend this string to 
+     concatenated with a "<code>:</code>".  Prepend this string to
      <code>result.path</code>.
    </ol>
 
@@ -642,18 +642,18 @@ Choice:
 interoperable, and therefore are effectively implementation defined.
 Furthermore, the parsing rules in this section have not enjoyed wide review,
 and therefore are more likely to be subject to change than other parts of this
-specification.  
+specification.
 <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=27518">bug <code>27518</code></a>
 proposes to remove all normative definitions for file URLs that are not
-known to be interoperable.  
-<a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=23550">Bug <code>23550</code></a>  
+known to be interoperable.
+<a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=23550">Bug <code>23550</code></a>
 and
 <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=23717">bug <code>23717</code></a>
-suggest less drastic changes.  
+suggest less drastic changes.
 
 <h4 id=rule-non-relative-url class=no-toc>non-relative-url(input)</h4>
 
-returns: { 
+returns: {
    <a href="#concept-url-scheme">scheme</a>,
    <a href="#concept-url-scheme-data">scheme-data</a>
  }
@@ -691,7 +691,7 @@ may add support for relative URLs for unknown schemes.
 
 <h4 id=rule-relative-url class=no-toc>relative-url(input)</h4>
 
-returns: { 
+returns: {
    <a href="#concept-url-scheme">scheme</a>,
    <a href="#concept-url-username">username</a>,
    <a href="#concept-url-password">password</a>,
@@ -798,7 +798,7 @@ Choice:
    <li>Set <code>result.scheme</code> to the <a>value of</a> <code class=grammar-rule><a href=#rule-non-file-relative-scheme>non-file-relative-scheme</a></code>.
    <li>Set <code>result.scheme</code> to the <a>value of</a> <code class=grammar-rule><a href=#rule-scheme>scheme</a></code>.
    <li>Set <code>result.host</code> to <code>base.host</code>.
-   <li>Set <code>result.path</code> by the <a>path concatenation</a> of 
+   <li>Set <code>result.path</code> by the <a>path concatenation</a> of
        <code>base.path</code> and <code class=grammar-rule><a href=#rule-path>path</a></code>.
    </ol>
 
@@ -869,7 +869,7 @@ Return the results as a lowercased string.
 
 <h4 id=rule-authority class=no-toc>authority(input)</h4>
 
-returns: { 
+returns: {
   <a href="#concept-url-username">username</a>,
   <a href="#concept-url-password">password</a>,
   <a href="#concept-url-host">host</a>,
@@ -935,9 +935,9 @@ Consume all code points until either
 a solidus (<code>U+002F</code>),
 a reverse solidus (<code>U+005C</code>),
 a question mark (<code>U+003F</code>),
-a number sign (<code>U+<code>0023</code></code>), 
-a commercial at (<code>U+<code>0040</code></code>), 
-a colon (<code>U+003A</code>), 
+a number sign (<code>U+<code>0023</code></code>),
+a commercial at (<code>U+<code>0040</code></code>),
+a colon (<code>U+003A</code>),
 or the end of string is encountered.
 Return the <a title=cleanse>cleansed</a> result using the
 <a>default encode set</a>.
@@ -956,8 +956,8 @@ Consume all code points until either
 a solidus (<code>U+002F</code>),
 a reverse solidus (<code>U+005C</code>),
 a question mark (<code>U+003F</code>),
-a number sign (<code>U+<code>0023</code></code>), 
-a commercial at (<code>U+<code>0040</code></code>), 
+a number sign (<code>U+<code>0023</code></code>),
+a commercial at (<code>U+<code>0040</code></code>),
 or the end of string is encountered.
 Return the <a title=cleanse>cleansed</a> result using the
 <a>default encode set</a>.
@@ -1040,7 +1040,7 @@ Sequence:
 <li>Let <code>pre</code> be the set of <code class=grammar-rule><a href=#rule-h16>h16</a></code> values before the double colon, if present.
 <li>Let <code>post</code> be the remaining <code class=grammar-rule><a href=#rule-h16>h16</a></code> value before the last value
 <li>Let <code>last</code> be the trailing <code class=grammar-rule><a href=#rule-h16>h16</a></code> or <code class=grammar-rule><a href=#rule-ls32>ls32</a></code> value.
- 
+
 <li>If there are no consecutive colon code points in the input string,
     indicate a <a>parse exception</a> and terminate processing unless there
     are exactly six <code class=grammar-rule><a href=#rule-h16>h16</a></code> values and one <code class=grammar-rule><a href=#rule-ls32>ls32</a></code> value.
@@ -1101,10 +1101,10 @@ with a <a>parse exception</a>.
 
 <li>Let <code>n</code> be the last <code class=grammar-rule><a href=#rule-number>number</a></code>.
 
-<li>If the first <code class=grammar-rule><a href=#rule-number>number</a></code> <a>is present</a>, add its 
+<li>If the first <code class=grammar-rule><a href=#rule-number>number</a></code> <a>is present</a>, add its
 <a title='value of'>value</a> times <code>256</code><sup><code>3</code></sup> to <code>n</code>.
 
-<li>If the second <code class=grammar-rule><a href=#rule-number>number</a></code> <a>is present</a>, add its 
+<li>If the second <code class=grammar-rule><a href=#rule-number>number</a></code> <a>is present</a>, add its
 <a title='value of'>value</a> times <code>256</code><sup><code>2</code></sup> to <code>n</code>.
 
 <li>If the third <code class=grammar-rule><a href=#rule-number>number</a></code> <a>is present</a>, add its <a title='value
@@ -1230,7 +1230,7 @@ or the end of string is encountered.
 <var>null</var> as the encode set.
 
 <li>Remove leading <code>U+<code>0030</code></code> code points from <code>result</code> until either the leading
-code point is not <code>U+<code>0030</code></code> or <code>result</code> consists of exactly one code point. 
+code point is not <code>U+<code>0030</code></code> or <code>result</code> consists of exactly one code point.
 
 <li>If any code points in <code>result</code> are not <a>ASCII digits</a>:
   <ol>
@@ -1329,7 +1329,7 @@ ZeroOrMore:
   T: any except [#]
 </pre>
 
-Consume all code points until either a 
+Consume all code points until either a
 number sign (<code>U+<code>0023</code></code>) or the end of string is encountered.
 Return the <a title=cleanse>cleansed</a> result using the
 the result using the <a>query encode set</a>.
@@ -1349,7 +1349,7 @@ ZeroOrMore:
 </pre>
 
 <ol>
-<li>Let <code>result</code> be the remaining code points in the input.  
+<li>Let <code>result</code> be the remaining code points in the input.
 <li>If any <code>U+<code>0000</code></code> characters are present in <code>result</code>, remove those
 characters from <code>result</code> and indicate a
 <a data-link-type="<code>dfn</code>" href="#conformance-error">conformance error</a>.
@@ -1360,7 +1360,7 @@ a <a>URL code point</a>, indicate a
 as the encode set.
 </ol>
 
-<p class=note>Unfortunately not using 
+<p class=note>Unfortunately not using
 <a title="percent encode">percent-encoding</a> is intentional as
 implementations with majority market share exhibit this behavior.
 
@@ -1399,7 +1399,7 @@ ZeroOrMore:
 
 If <code>url.scheme_data</code> is not null, return.
 
-Set <code>url.username</code> to the 
+Set <code>url.username</code> to the
 <a title="percent encode">percent encoded</a>
 value using the
 <a>username encode set</a>.
@@ -1413,7 +1413,7 @@ ZeroOrMore:
 
 If <code>url.scheme_data</code> is not null, return.
 
-Set <code>url.password</code> to the 
+Set <code>url.password</code> to the
 <a title="percent encode">percent encoded</a> value
 using the
 <a>password encode set</a>.
@@ -1518,7 +1518,7 @@ Sequence:
     T: any
 </pre>
 
-Set <code>url.fragment</code> to the 
+Set <code>url.fragment</code> to the
 <a title="percent encode">percent encoded</a> value
 after the initial number sign (<code>U+<code>0023</code></code>), if any, using the
 <a>simple encode set</a>
@@ -2216,7 +2216,7 @@ these steps:
  <li><p>Let <var>input</var> be the given value.
 
  <li>
-  <p>If the <code><a>context object</a></code> is a 
+  <p>If the <code><a>context object</a></code> is a
   <code><a interface>URL</a></code> object, run these substeps:
 
   <ol>
